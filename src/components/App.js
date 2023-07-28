@@ -1,13 +1,22 @@
-
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { increaseCount, decreaseCount } from "./actions";
 import './../styles/App.css';
 
+
 const App = () => {
+  const count = useSelector((state) => state.count);
+  const dispatch = useDispatch();
+
   return (
     <div>
-        {/* Do not remove the main div */}
+      {/* Do not remove the main div */}
+      <p>{count}</p>
+      <button onClick={() => dispatch(increaseCount())}>Increase</button>
+      <button onClick={() => dispatch(decreaseCount())}>Decrease</button>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+
